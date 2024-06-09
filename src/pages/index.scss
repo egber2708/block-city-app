@@ -1,0 +1,25 @@
+@import '../styles/config/variable';
+
+.app-page{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100svh;
+    width: 100%;
+    background-color: red;
+}
+
+.page-container{
+    position: relative;
+    padding-top: 45px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0 $spacing;
+    height: 100%;
+    width: 100%;
+    max-width: $desktop-width;
+    overflow-y: auto;
+    background-color: blue;
+}

@@ -1,0 +1,159 @@
+
+
+h1 {
+    font-size: 32px;
+    font-weight: Bold;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    line-height: 40px;
+}
+
+h2 {
+    font-size: 24px;
+    font-weight: Bold;
+    line-height: 30px;
+}
+
+h3 {
+    font-size: 20px;
+    font-weight: Bold;
+    line-height: 24px;
+}
+h4 {
+    font-size: 16px;
+    font-weight: Bold;
+    line-height: 20px;
+}
+h5 {
+    font-size: 14px;
+    font-weight: Bold;
+    line-height: 18px;
+}
+h6 {
+    font-size: 14px;
+    font-weight: Bold;
+    line-height: 18px;
+}
+
+p,
+label {
+    font-size: 14px;
+    line-height: 22px;
+    font-weight: 400;
+}
+
+p.small {
+    font-size: 12px;
+}
+
+a {
+    font-size: 14px;
+    line-height: 22px;
+    font-weight: 400;
+    color: #0972d3;
+}
+
+a.primary-link {
+    font-size: 14px;
+    line-height: 22px;
+    font-weight: 700;
+    color: #0972d3;
+    text-decoration: underline;
+}
+
+a.menu {
+    font-family: Georgia, 'Times New Roman', Times, serif !important;
+    font-size: 18px;
+    line-height: 22px;
+    font-weight: bold;
+}
+
+@include view-tablets {
+    h1 {
+        font-size: 28px;
+        line-height: 26px;
+    }
+
+    h2 {
+        font-size: 20px;
+        line-height: 26px;
+    }
+
+    h3 {
+        font-size: 16px;
+        line-height: 20px;
+    }
+    h4 {
+        font-size: 16px;
+        line-height: 20px;
+    }
+    h5, h6 {
+        font-size: 12px;
+        line-height: 16px;
+    }
+
+    p,
+    label {
+        font-size: 12px;
+        line-height: 18px;
+    }
+
+    p.small {
+        font-size: 10px;
+    }
+
+    a {
+        font-size: 12px;
+        line-height: 18px;
+    }
+
+    a.primary-link {
+        font-size: 12px;
+        line-height: 18px;
+    }
+
+}
+
+@include view-phones {
+    h1 {
+        font-size: 24px;
+        line-height: 22px;
+    }
+
+    h2 {
+        font-size: 16px;
+        line-height: 22px;
+    }
+
+    h3 {
+        font-size: 14px;
+        line-height: 16px;
+    }
+    h4 {
+        font-size: 12px;
+        line-height: 16px;
+    }
+    h5, h6 {
+        font-size: 10px;
+        line-height: 12px;
+    }
+
+    p,
+    label {
+        font-size: 10px;
+        line-height: 14px;
+    }
+
+    p.small {
+        font-size: 8px;
+    }
+
+    a {
+        font-size: 10px;
+        line-height: 14px;
+    }
+
+    a.primary-link {
+        font-size: 10px;
+        line-height: 14px;
+    }
+}

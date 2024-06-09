@@ -1,0 +1,33 @@
+
+
+// Extra small devices (phones, 600px and down
+@mixin view-phones {
+  @media (max-width: $phone-large-width) {
+    @content;
+  }
+}
+
+// Land scape tablets, 600px and up 920px
+@mixin view-tablets {
+  @media (min-width: $phone-large-width) and (max-width: $tablet-large-width)   {
+    @content;
+  }
+}
+
+
+//  laptops and desktops, 920px and up
+@mixin view-desktops {
+  @media (min-width: $tablet-large-width){
+    @content;
+  }
+}
+
+//  Large laptops and desktops, 1450px and up)
+@mixin view-large-desktop {
+  @media (min-width: $desktop-large-width) {
+    @content;
+  }
+}
+
+
+
