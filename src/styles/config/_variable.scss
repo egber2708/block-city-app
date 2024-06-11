@@ -30,18 +30,33 @@ $secondary700:  #1b1d22;
 $secondary800:  #1a1b1f;
 $secondary900:  #16171b;
 
+$primary : #0B1F2F;
+$primary10 : #B1C7CF;
+$primary20 : #CFDDE7;
+$primary30 : #395368;
+$primary40 : #061625;
+
+$metalic : #C5D2DA;
+$metalic10 : #C5D2DA;
+
+
 $white : #fff;
 $black : #13171b;
 $u-blue: #3784FB;
 $u-lingth-blue: #00C8D0;
 $u-purple: #563491;
-$u-dark: #13171b;
 $yellow: #FBAE05;
 
 
 $spacing: 4px;
 
 //Mixins 
+
+@mixin gradient-metalic {
+  background:  linear-gradient(225.41deg, $black -171.92%, $primary40 100%);
+  background: $primary40;
+}
+
 
 @mixin gradient-1 {
   background: -webkit-gradient(225.41deg, $u-lingth-blue -171.92%, $u-purple 100%);

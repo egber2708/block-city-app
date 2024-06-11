@@ -1,0 +1,104 @@
+
+.table-continer{
+    width: 100%;
+}
+
+.tabledata-container{
+    width: 100%;
+    padding-right: 16px;
+    min-height: 40vh;
+    max-height: 80vh;
+    overflow: auto;
+    scrollbar-width:  thin ;
+    scrollbar-color: #26c65ec6 #F9FAFB;
+}
+
+
+.tables-display{
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0px 10px;
+
+
+
+  thead {
+    position: sticky;
+    top: 0;
+    background-color:#061625; 
+    z-index: 1; 
+  }
+
+    tbody tr {
+        background-color: #F9FAFB;
+        border-radius: 40px;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    }
+
+    th {
+        padding: 0px 16px; /* Add padding to headers */
+        background-color: transparent; /* Add a light gray background to headers */
+        font-weight: bold; /* Make headers bold */
+        text-align: left; /* Align text left by default */
+        color : #9CA3AF
+    }
+
+
+    td {
+        padding: 8px 16px; /* Add padding to headers */
+        border: none; /* Add a thin border to cells */
+        text-align: left; /* Align text left by default */
+        color: black
+    }
+
+    td:first-child {
+        border-radius: 40px 0 0 40px;
+    }
+    td:last-child {
+        border-radius: 0 40px 40px 0;
+    }
+
+    
+
+
+
+}
+
+.table-title{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+    h2{
+        color : #9CA3AF;
+        font-size: 36px !important;
+    }
+
+    .table-search{
+        width: 40%;
+        position: relative;
+        
+        svg{
+            position: absolute;
+            top: 50%;
+            left: 8px;
+            transform: translateY(-50%);
+            color: #22ad52ea;
+
+        }
+        input {
+            padding: 6px 32px;
+            width: 100%;
+            border: 1px solid #22ad52;
+            border-radius: 8px;
+            font-size: 16px;
+            
+        }
+
+    }
+
+
+
+}
+
+
+

@@ -1,0 +1,31 @@
+.input-form-container{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 100%;
+    gap: 2px;
+    margin: 8px auto;
+
+
+    label{
+        min-width: 80px;
+        margin-bottom: 8px;
+    }
+
+    span.required{
+        color: red;
+        margin-left: 4px;
+    }
+}
+
+.line-form{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 4px;
+    width: 100%;
+    margin: 12px auto;
+    input{
+        flex: 1;
+    }
+}
