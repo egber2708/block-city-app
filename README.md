@@ -52,6 +52,9 @@ For the task implementation, you may need the following artifacts:
 
 3. **Provider Type**:
     - As the project subscribes to events, the provider should be of type WS (WebSocket) and not HTTP to ensure real-time updates and better handling of blockchain events.
+  
+## GRAPH DETAILS:
+- [https://excalidraw.com/#json=UtM_hNlWhBydzKbIM-0fz,zVhu6zHCYembraAXeD1BKA](https://excalidraw.com/#json=UtM_hNlWhBydzKbIM-0fz,zVhu6zHCYembraAXeD1BKA)
 
 ## Contact
 
