@@ -7,7 +7,8 @@ const citizenSchema = Joi.object({
     city: Joi.string().required(),
     someNote: Joi.string().allow(null),
     transactionHash: Joi.string().allow(null),
-    blockNumber: Joi.number().allow(null)
+    blockNumber: Joi.number().allow(null),
+    hash: Joi.string().allow(null)
 });
 
 export { citizenSchema };

@@ -1,5 +1,5 @@
 import { voidFunction } from '../utils/constans';
-import { newCitizen } from './citizens';
+import { newCitizen, newCitizenFromContract } from './citizens';
 import { citizenSchema } from './schemas';
 
 const voidSchema = { validate: voidFunction };
@@ -11,6 +11,7 @@ const dtoValidatorBuilder = (
     return (item) => {
         const { error } = schema.validate(item);
         if (error) {
+            console.log(error.message);
             throw new Error(`Validation error: ${error.message}`);
         }
         return createObject(item);
@@ -20,7 +21,7 @@ const dtoValidatorBuilder = (
 const citizenDto = dtoValidatorBuilder(newCitizen, citizenSchema);
 
 const citizensDto = (citizens = []) => {
-    return citizens.map(citizenDto);
+    return citizens.map(newCitizenFromContract).map(citizenDto);
 };
 
 export { citizenDto, citizensDto };
