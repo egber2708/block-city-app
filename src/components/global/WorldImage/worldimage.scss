@@ -1,0 +1,60 @@
+.world-image-container {
+    position: relative;
+
+    .image--world {
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: auto;
+        z-index: 0;
+        animation: fadeInRotate 1s ease-in-out forwards;
+    }
+
+    .image-locator {
+        position: absolute;
+        z-index: 1;
+         
+        animation: fadeInUp 0.5s ease-in-out forwards;
+    }
+
+    .locator_top_rigth {
+        top: 10%;
+        right: 20%;
+        opacity: 0;
+        animation-delay: 1s;
+    }
+
+    .locator_middle_left {
+        top: 20%;
+        left: 10%;
+        transform: translateY(-50%);
+        opacity: 0;
+        animation-delay: 1.2s;
+    }
+    .locator_middle_right {
+        top: 45%;
+        right: 5%;
+        transform: translateY(-50%);
+        opacity: 0;
+        animation-delay: 1.3s;
+    }
+    .locator_middle {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        opacity: 0;
+        animation-delay: 1.4s;
+    }
+    .locator_bottom_right {
+        bottom: 20%;
+        right: 25%;
+        opacity: 0;
+        animation-delay: 1.5s;
+    }
+    .locator_bottom_left {
+        bottom: 20%;
+        left: 10%;
+        opacity: 0;
+        animation-delay: 1.6s;
+    }
+}

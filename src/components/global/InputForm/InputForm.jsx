@@ -1,9 +1,10 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
-import { voidFunction } from '../../utils/constans';
+
+import { voidFunction } from '@utils/constans';
+import Input from '@global/Input/Input';
 
 import './inputform.scss';
-import Input from '../Input/Input';
 
 const InputForm = (props) => {
     const {

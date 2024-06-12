@@ -1,8 +1,12 @@
 import { createContext, useEffect } from 'react';
 
 import PropTypes from 'prop-types';
-import useConnectWallet from '../services/Metamask/useConnectWallet';
-import useGetBalance from '../services/Metamask/useGetBalance';
+
+import useConnectWallet from '@services/Metamask/useConnectWallet';
+import useGetBalance from '@services/Metamask/useGetBalance';
+import { ToastContainer } from 'react-toastify';
+
+import 'react-toastify/dist/ReactToastify.css';
 
 export const StoreContext = createContext();
 
@@ -32,6 +36,7 @@ function StoreProvider({ children }) {
             }}
         >
             {children}
+            <ToastContainer />
         </StoreContext.Provider>
     );
 }

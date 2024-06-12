@@ -1,12 +1,11 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
-import InputForm from '../InputForm/InputForm';
-import useAddCitizen from '../../services/Metamask/useAddCitizen';
-import Loader from '../Loader/Loader';
+import { InputForm } from '@global';
+import { Loader } from '@global';
+import useAddCitizen from '@services/Metamask/useAddCitizen';
 
 const AddCitizen = (props) => {
     const { web3, account } = props;
-    console.log('🚀 ~ AddCitizen ~ account:', account);
 
     const [citizen, setCitizen] = useState({
         name: '',
@@ -18,10 +17,6 @@ const AddCitizen = (props) => {
     const { loading, addCitizen } = useAddCitizen({ web3, account });
 
     const handleAddCitizen = () => {
-        console.log('🚀 ~ handleAddCitizen ~ citizen:', {
-            ...citizen,
-            age: parseInt(citizen.age)
-        });
         addCitizen({ ...citizen, age: parseInt(citizen.age) });
     };
 

@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import { voidFunction } from '../../utils/constans';
+import { voidFunction } from '@utils/constans';
 
 import './paginator.scss';
 

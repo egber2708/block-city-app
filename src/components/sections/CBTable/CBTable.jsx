@@ -1,12 +1,13 @@
 import PropTypes from 'prop-types';
-import { voidFunction } from '../../utils/constans';
 import Avvvatars from 'avvvatars-react';
 
+import { Loader } from '@global';
+import { Modal } from '@global';
+import { Paginator } from '@global';
+import useCBTable from '@services/hooks/useCBTable';
+import { voidFunction } from '@utils/constans';
+
 import './cbtable.scss';
-import Loader from '../Loader/Loader';
-import Modal from '../Modal/Modal';
-import Paginator from '../Paginartor/Paginator';
-import useCBTable from '../../services/hooks/useCBTable';
 
 const CBTable = ({ data, showDetail = voidFunction, loading = true }) => {
     const { displayData, search, setSearch, pageOptions, setPageOptions } =

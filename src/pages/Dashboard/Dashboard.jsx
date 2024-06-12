@@ -1,15 +1,17 @@
 import { useState } from 'react';
-import Modal from '../../components/Modal/Modal';
-import useModal from '../../services/hooks/useModal';
+import { toast } from 'react-toastify';
+
+import { Modal } from '@global';
+import { CBTable } from '@sections';
+import { AddCitizen } from '@sections';
+import { ViewCitizen } from '@sections';
+
+import useStore from '@/context/useStore';
+import useGetCitizens from '@services/Metamask/useGetCitizens';
+import useSubscribeRegisterEvent from '@services/Metamask/useSubscribeRegisterEvent';
+import useModal from '@services/hooks/useModal';
 
 import './dashboard.scss';
-import CBTable from '../../components/CBTable/CBTable';
-import AddCitizen from '../../components/AddCitizen/AddCitizen';
-import ViewCitizen from '../../components/ViewCitizen/ViewCitizen';
-import useStore from '../../context/useStore';
-import useGetCitizens from '../../services/Metamask/useGetCitizens';
-import { toast } from 'react-toastify';
-import useSubscribeRegisterEvent from '../../services/Metamask/useSubscribeRegisterEvent';
 
 const Dashboard = () => {
     const [modalTitle, setModalTitle] = useState('');
@@ -26,11 +28,6 @@ const Dashboard = () => {
     });
 
     const { transactionsNewEvents } = useSubscribeRegisterEvent({ web3 });
-
-    console.log(
-        '🚀 ~ Dashboard ~ transactionsNewEvents:',
-        transactionsNewEvents
-    );
 
     if (!loadingCitizens && error) {
         toast.error(error);

@@ -1,7 +1,9 @@
 import PropTypes from 'prop-types';
-import logo from '../../assets/logo.png';
+
+import logo from '@assets/logo.png';
+import useStore from '@/context/useStore';
+
 import './navbar.scss';
-import useStore from '../../context/useStore';
 
 function Navbar({ onDisconnect }) {
     const { isConnected } = useStore();
