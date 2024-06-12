@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types';
 import Avvvatars from 'avvvatars-react';
-import { SCAN_URL } from '../../utils/constans';
-import useGetNoteByCitizenId from '../../services/Metamask/useGetNoteByCitizenId';
-import Loader from '../Loader/Loader';
+import { SCAN_URL } from '@utils/constans';
+import useGetNoteByCitizenId from '@services/Metamask/useGetNoteByCitizenId';
+import { Loader } from '@global';
 import './viewcitizen.scss';
 const ViewCitizen = (props) => {
     const {

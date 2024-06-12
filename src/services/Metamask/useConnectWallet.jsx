@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import Web3 from 'web3';
-import { CHAIN_ID, NET_RPC } from '../../utils/constans';
+import { CHAIN_ID, NET_RPC } from '@utils/constans';
 
 const useConnectWallet = () => {
     const [web3, setWeb3] = useState(null);

@@ -1,12 +1,14 @@
 import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { ABI_CITIZEN_CONTRACT } from '../../utils/abiContracts';
+
 import {
     CONTRACT_ADDRESS,
     MAX_BLOCK_SIZE,
     TX_INIT_BLOCK
-} from '../../utils/constans';
-import { citizensContractDto } from '../../models/citizens';
+} from '@utils/constans';
+import { ABI_CITIZEN_CONTRACT } from '@utils/abiContracts';
+
+import { citizensDto } from '@/models/dto';
 
 const useGetCitizens = ({ web3 }) => {
     const [citizens, setCitizens] = useState([]);
@@ -18,7 +20,7 @@ const useGetCitizens = ({ web3 }) => {
     const getPassEventData = async (
         contractInstance,
         eventName,
-        citizensContractDto,
+        citizensDto,
         searchNumer
     ) => {
         const passEvents = await Promise.allSettled(
@@ -32,7 +34,7 @@ const useGetCitizens = ({ web3 }) => {
                                 TX_INIT_BLOCK + MAX_BLOCK_SIZE * (index + 1)
                         }
                     );
-                    return citizensContractDto(events);
+                    return citizensDto(events);
                 }
             )
         );
@@ -60,7 +62,7 @@ const useGetCitizens = ({ web3 }) => {
         const citizensList = await getPassEventData(
             cityContractInstance,
             'Citizen',
-            citizensContractDto,
+            citizensDto,
             searchNumer
         );
         return { data: citizensList };
