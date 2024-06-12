@@ -1,7 +1,9 @@
 import { toast } from 'react-toastify';
 
 const useErrorAlert = () => {
-    const errorDialog = (errormessage, options = {}) => {
+    const errorDialog = (errormessage, errorMessage, options = {}) => {
+        if (errorMessage) console.error(errorMessage);
+
         return toast.error(`${errormessage}`, {
             position: 'top-right',
             autoClose: 5000,

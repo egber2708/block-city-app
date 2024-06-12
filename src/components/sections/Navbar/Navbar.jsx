@@ -1,12 +1,27 @@
-import PropTypes from 'prop-types';
-
 import logo from '@assets/logo.png';
+import PropTypes from 'prop-types';
 import useStore from '@/context/useStore';
+
+import metamaskIcon from '@assets/metamaskIcon.png';
+import useHandleConnection from '@/services/hooks/useHandleConnection';
 
 import './navbar.scss';
 
-function Navbar({ onDisconnect }) {
+const DisconnectButton = ({ onClick }) => (
+    <div className="disconnect-button" onClick={onClick}>
+        <img src={metamaskIcon} alt="logo" />
+        <label>Disconnect</label>
+    </div>
+);
+
+DisconnectButton.propTypes = {
+    onClick: PropTypes.func.isRequired
+};
+
+function Navbar() {
     const { isConnected } = useStore();
+
+    const { handleConnection } = useHandleConnection();
 
     return (
         <div className="navbar-container">
@@ -14,20 +29,12 @@ function Navbar({ onDisconnect }) {
                 <img src={logo} alt="logo" />
                 <label>Blockcity</label>
             </div>
-            <div
-                className={`navbar-seccion ${
-                    isConnected ? '' : 'hiden-navbar'
-                }`}
-                onClick={onDisconnect}
-            >
-                x
+
+            <div className="navbar-seccion">
+                {isConnected && <DisconnectButton onClick={handleConnection} />}
             </div>
         </div>
     );
 }
-
-Navbar.propTypes = {
-    onDisconnect: PropTypes.func.isRequired
-};
 
 export default Navbar;

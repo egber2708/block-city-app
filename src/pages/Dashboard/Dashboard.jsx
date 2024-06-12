@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { toast } from 'react-toastify';
 
 import { Modal } from '@global';
 import { CBTable } from '@sections';
@@ -10,6 +9,7 @@ import useStore from '@/context/useStore';
 import useGetCitizens from '@services/Metamask/useGetCitizens';
 import useSubscribeRegisterEvent from '@services/Metamask/useSubscribeRegisterEvent';
 import useModal from '@services/hooks/useModal';
+import useErrorAlert from '@services/hooks/useErrorAlert';
 
 import './dashboard.scss';
 
@@ -29,8 +29,10 @@ const Dashboard = () => {
 
     const { transactionsNewEvents } = useSubscribeRegisterEvent({ web3 });
 
+    const { errorDialog } = useErrorAlert();
+
     if (!loadingCitizens && error) {
-        toast.error(error);
+        errorDialog(error, error);
     }
 
     const handleAddCitizen = () => {

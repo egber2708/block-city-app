@@ -19,7 +19,7 @@ const useHandleConnection = () => {
         setLoading(true);
         const { error } = await connectWallet();
         setLoading(false);
-        if (error) return errorDialog(error);
+        if (error) return errorDialog(error, error);
         return successDialog('Wallet Connected');
     };
 
