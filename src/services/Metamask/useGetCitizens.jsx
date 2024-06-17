@@ -69,9 +69,7 @@ const useGetCitizens = ({ web3 }) => {
     };
 
     const init = async () => {
-        console.log('🚀 ~ Initializate Request');
         const { error, data } = await getCitizensList();
-        console.log('🚀 ~ init ~ data:', data, error);
         setError(error ?? null);
         setCitizens(data ?? []);
         setLoading(false);

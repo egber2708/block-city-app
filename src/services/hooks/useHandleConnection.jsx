@@ -14,7 +14,6 @@ const useHandleConnection = () => {
     const { successDialog } = useSuccessAlert();
 
     const handleConnection = async () => {
-        console.log('handle Conection Connected', isConnected);
         if (isConnected) return await disconnectWallet();
         setLoading(true);
         const { error } = await connectWallet();
