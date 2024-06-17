@@ -12,7 +12,8 @@ Input.propTypes = {
     type: PropTypes.oneOf(['text', 'number', 'textarea']),
     value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     onChange: PropTypes.func,
-    className: PropTypes.string
+    className: PropTypes.string,
+    placeholder: PropTypes.string,
 };
 
 export default Input;

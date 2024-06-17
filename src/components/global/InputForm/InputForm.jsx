@@ -10,6 +10,7 @@ const InputForm = (props) => {
     const {
         name = 'name',
         type = 'text',
+        placeholder= '',
         lineForm = false,
         onChange = voidFunction,
         value,
@@ -40,6 +41,7 @@ const InputForm = (props) => {
                 name={name}
                 value={inputValue}
                 onChange={handleChange}
+                placeholder= {placeholder}
             />
             {error && <p className="error-message"> {error} </p>}
         </div>
@@ -53,7 +55,8 @@ InputForm.propTypes = {
     onChange: PropTypes.func,
     value: PropTypes.string,
     isRequired: PropTypes.bool,
-    error: PropTypes.string
+    error: PropTypes.string,
+    placeholder: PropTypes.string,
 };
 
 export default InputForm;

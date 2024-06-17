@@ -11,8 +11,8 @@ const dtoValidatorBuilder = (
     return (item) => {
         const { error } = schema.validate(item);
         if (error) {
-            console.log(error.message);
-            throw new Error(`Validation error: ${error.message}`);
+            console.log('Validate Error', error.message);
+            throw new Error(`${error.message}`);
         }
         return createObject(item);
     };
