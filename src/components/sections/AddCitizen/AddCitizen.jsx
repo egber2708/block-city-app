@@ -1,11 +1,13 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
 import { InputForm } from '@global';
-import { Loader } from '@global';
 import useAddCitizen from '@services/Metamask/useAddCitizen';
+import { citizenDto } from '@/models/dto';
 
 const AddCitizen = (props) => {
     const { web3, account } = props;
+
+    const [error, setError] = useState('');
 
     const [citizen, setCitizen] = useState({
         name: '',
@@ -14,50 +16,52 @@ const AddCitizen = (props) => {
         someNote: ''
     });
 
+    const citizenForm =  [
+        {type : 'text', key: 'name' , required: true , placeholder: '', label: 'Name' },
+        {type : 'number' , key: 'age', required: true, placeholder: '', label: 'Age' },
+        {type : 'text' , key: 'city', required: true, placeholder: '', label: 'City' },
+        {type : 'textarea' , key: 'someNote', required: false , placeholder: '', label: 'Notes' }
+    ]
+
     const { loading, addCitizen } = useAddCitizen({ web3, account });
 
     const handleAddCitizen = () => {
-        addCitizen({ ...citizen, age: parseInt(citizen.age) });
+        if (loading) return null ; 
+        try {
+            const createCitizen = citizenDto({ id: '1', ...citizen });
+            addCitizen(createCitizen);
+        } catch (error) {
+            console.log("🚀 ~ handleAddCitizen ~ error:", error.message)
+            setError(error.message)
+        }
     };
 
     const handleChange = (e, name) => {
         setCitizen({ ...citizen, [name]: e });
     };
 
+    const getErrorMsg =  (key)=>{
+        if (error && error.includes(`"${key}"`)) return error
+        return ''
+    }
+
     return (
         <div>
-            <InputForm
-                name="Name"
-                isRequired
-                value={citizen.name}
-                onChange={(e) => handleChange(e, 'name')}
-            />
-            <InputForm
-                name="Age"
-                type="number"
-                isRequired
-                value={citizen.age}
-                onChange={(e) => handleChange(e, 'age')}
-            />
-            <InputForm
-                name="City"
-                isRequired
-                value={citizen.city}
-                onChange={(e) => handleChange(e, 'city')}
-            />
-            <InputForm
-                name="Notes"
-                type="textarea"
-                isRequired
-                value={citizen.someNote}
-                onChange={(e) => handleChange(e, 'someNote')}
-            />
+            {
+                (citizenForm.map(item=><InputForm
+                    key={item.label}
+                           name={item.label}
+                           isRequired = {item.required}
+                           value={citizen[item.key]}
+                           onChange={(e) => handleChange(e, item.key)}
+                           error={getErrorMsg(item.key)}
+                           type = {item.type}
+                           placeholder = {item.placeholder}
+                       />))
+            }
+           
             <div>
-                {loading ? (
-                    <Loader />
-                ) : (
-                    <button onClick={handleAddCitizen}>Add Citizen</button>
-                )}
+                <button onClick={handleAddCitizen}> {loading ?'... Loading ' :'Add Citizen' } </button>
             </div>
         </div>
     );
