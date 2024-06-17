@@ -5,7 +5,7 @@ import useAddCitizen from '@services/Metamask/useAddCitizen';
 import { citizenDto } from '@/models/dto';
 
 const AddCitizen = (props) => {
-    const { web3, account } = props;
+    const { web3, account, actionCompleate = ()=>{} } = props;
 
     const [error, setError] = useState('');
 
@@ -25,13 +25,14 @@ const AddCitizen = (props) => {
 
     const { loading, addCitizen } = useAddCitizen({ web3, account });
 
-    const handleAddCitizen = () => {
+    const handleAddCitizen = async () => {
         if (loading) return null ; 
+        setError('')
         try {
             const createCitizen = citizenDto({ id: '1', ...citizen });
-            addCitizen(createCitizen);
+            const {error} = await addCitizen(createCitizen);
+            if ( !error ) actionCompleate()
         } catch (error) {
-            console.log("🚀 ~ handleAddCitizen ~ error:", error.message)
             setError(error.message)
         }
     };
@@ -69,7 +70,8 @@ const AddCitizen = (props) => {
 
 AddCitizen.propTypes = {
     web3: PropTypes.object.isRequired,
-    account: PropTypes.string.isRequired
+    account: PropTypes.string.isRequired,
+    actionCompleate : PropTypes.func
 };
 
 export default AddCitizen;

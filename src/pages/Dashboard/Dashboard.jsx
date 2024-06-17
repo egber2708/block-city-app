@@ -37,7 +37,7 @@ const Dashboard = () => {
 
     const handleAddCitizen = () => {
         setModalTitle('Add Citizen');
-        const tx = () => <AddCitizen web3={web3} account={account} />;
+        const tx = () => <AddCitizen web3={web3} account={account} actionCompleate={close} />;
         open(tx());
     };
 
